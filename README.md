@@ -1,3 +1,3 @@
 Training №1
-asfsafsafsafsafsa
-safsafsafsafsa
+
+интенсив по вёрстке от GLO Academy
