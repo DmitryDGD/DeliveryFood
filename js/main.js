@@ -143,7 +143,7 @@ function openGoods(event) {
 	const target = event.target;
 	const restaurant = target.closest('.card-restaurant');
 	if (restaurant) {
-			if (login) { 
+		if (login) {
 			cardsMenu.textContent = '';
 
 			containerPromo.classList.add('hide');
@@ -153,9 +153,9 @@ function openGoods(event) {
 			createCardGood();
 			createCardGood();
 
-			} else {
-				toogleModalAuth();
-			}
+		} else {
+			toogleModalAuth();
+		}
 	}
 
 }
