@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const cartButton = document.querySelector("#cart-button");
 const modal = document.querySelector(".modal");
@@ -17,7 +17,9 @@ const menu = document.querySelector('.menu');
 const logo = document.querySelector('.logo');
 const cardsMenu = document.querySelector('.cards-menu');
 
-login = localStorage.getItem('DeLivery');
+let login = localStorage.getItem('DeLivery');
+
+
 
 function toggleModal() {
 	modal.classList.toggle("is-open");
