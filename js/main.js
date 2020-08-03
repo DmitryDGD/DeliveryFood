@@ -85,7 +85,7 @@ function nonAuthorized() {
 	logInForm.addEventListener('submit', logIn);
 }
 
-checkAuth();
+
 
 function createCardRestaurant() {
 	const card = `
@@ -109,9 +109,6 @@ function createCardRestaurant() {
 
 	cardsRestaurants.insertAdjacentHTML('beforeend', card);
 }
-
-createCardRestaurant();
-createCardRestaurant();
 
 function createCardGood() {
 	const card = document.createElement('div');
@@ -154,6 +151,7 @@ function openGoods(event) {
 
 			createCardGood();
 			createCardGood();
+			createCardGood();
 
 		} else {
 			toogleModalAuth();
@@ -172,3 +170,8 @@ logo.addEventListener('click', function () {
 
 cartButton.addEventListener("click", toggleModal);
 close.addEventListener("click", toggleModal);
+
+checkAuth();
+createCardRestaurant();
+createCardRestaurant();
+createCardRestaurant();
