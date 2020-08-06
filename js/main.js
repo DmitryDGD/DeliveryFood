@@ -20,12 +20,29 @@ const restaurantTitle = document.querySelector('.restaurant-title');
 const rating = document.querySelector('.rating');
 const minPrice = document.querySelector('.price');
 const category = document.querySelector('.category');
-const cart = [];
 const modalBody = document.querySelector('.modal-body');
 const modalPrice = document.querySelector('.modal-pricetag');
 const clearCart = document.querySelector('.clear-cart');
 
 let login = localStorage.getItem('DeLivery');
+
+const cart = [];
+
+const loadCart = function () {
+	if (localStorage.getItem(login)) {
+		JSON.parse(localStorage.getItem(login)).forEach(function(item) {
+			cart.push(item);
+		})
+	}
+}
+
+const saveCart = function () {
+	localStorage.setItem(login, JSON.stringify(cart));
+}
+
+
+
+
 
 
 
@@ -65,6 +82,7 @@ function authorized() {
 
 	function logOut() {
 		login = null;
+		cart.length = 0;
 		localStorage.removeItem('DeLivery');
 		buttonAuth.style.display = '';
 		userName.style.display = '';
@@ -74,13 +92,13 @@ function authorized() {
 		checkAuth();
 	}
 
-	console.log('Авторизован');
 	userName.textContent = login;
 	buttonAuth.style.display = 'none';
 	userName.style.display = 'inline';
 	buttonOut.style.display = 'flex';
 	cartButton.style.display = 'flex';
 	buttonOut.addEventListener('click', logOut);
+	loadCart();
 }
 
 function nonAuthorized() {
@@ -104,7 +122,6 @@ function nonAuthorized() {
 
 
 
-	console.log('Не авторизован');
 	buttonAuth.addEventListener('click', toogleModalAuth);
 	closeAuth.addEventListener('click', toogleModalAuth);
 	logInForm.addEventListener('submit', logIn);
@@ -237,9 +254,9 @@ function addToCart(event) {
 			id, title, cost, count: 1
 		});
 
-		console.log(cart);
+		}
 	}
-	}
+	saveCart();
 }
 
 
@@ -291,7 +308,7 @@ function changeCount(event) {
 
 	}
 
-	
+	saveCart();
 }
 
 
